@@ -147,6 +147,8 @@ def point_circle(px, py, cx, cy, r):
 
 </CodeTabs>
 
+> **Dica de Otimização:** O cálculo da raiz quadrada (`sqrt` / `Math.sqrt`) pode ser uma operação computacionalmente custosa dependendo da sua aplicação. É possível otimizar essa função comparando as distâncias ao quadrado: `(distX * distX + distY * distY) <= (r * r)`. Isso elimina o uso da raiz quadrada e resulta na mesma lógica de colisão, o que é excelente se seu jogo realiza milhares de checagens por quadro. Como isso não acontece com frequência, manteremos a fórmula com `sqrt` nos exemplos por pura clareza didática. Mas caso você venha a necessitar, deixo aqui essa dica!
+
 Utilizado em um exemplo completo, podemos alterar a cor do círculo se o ponto estiver dentro dele.
 
 <CodeTabs>
