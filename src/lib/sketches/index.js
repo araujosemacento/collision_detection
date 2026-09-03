@@ -315,6 +315,7 @@ export const LinePoint = (container) => (p) => {
 	p.setup = () => {
 		const w = getCanvasWidth(container);
 		p.createCanvas(w, 400);
+		p.strokeWeight(15);
 		p.noCursor();
 		x1 = 100;
 		y1 = p.height - 100;
@@ -329,11 +330,9 @@ export const LinePoint = (container) => (p) => {
 
 		const hit = col.linePoint(x1, y1, x2, y2, px, py);
 
-		p.strokeWeight(5);
 		p.stroke(hit ? [255, 150, 0, 150] : [0, 150, 255, 150]);
 		p.line(x1, y1, x2, y2);
 
-		p.strokeWeight(15);
 		p.stroke(0, 150);
 		p.point(px, py);
 	};
@@ -360,7 +359,7 @@ export const LineCircle = (container) => (p) => {
 
 		const hit = col.lineCircle(x1, y1, x2, y2, cx, cy, r);
 
-		p.strokeWeight(5);
+		p.strokeWeight(15);
 		p.stroke(hit ? [255, 150, 0, 150] : [0, 150, 255, 150]);
 		p.line(x1, y1, x2, y2);
 
@@ -406,11 +405,10 @@ export const LineLine = (container) => (p) => {
 
 		const hit = col.lineLine(x1, y1, x2, y2, x3, y3, x4, y4);
 
-		p.strokeWeight(5);
+		p.strokeWeight(15);
 		p.stroke(hit ? [255, 150, 0, 150] : [0, 150, 255, 150]);
 		p.line(x3, y3, x4, y4);
 
-		p.strokeWeight(5);
 		p.stroke(0, 150);
 		p.line(x1, y1, x2, y2);
 
@@ -462,6 +460,10 @@ export const LineRect = (container) => (p) => {
 			{ x3: sx, y3: sy + sh, x4: sx + sw, y4: sy + sh }
 		];
 
+		p.strokeWeight(15);
+		p.stroke(0, 150);
+		p.line(x1, y1, x2, y2);
+
 		for (const edge of edges) {
 			const { x3, y3, x4, y4 } = edge;
 			const denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
@@ -477,10 +479,6 @@ export const LineRect = (container) => (p) => {
 				}
 			}
 		}
-
-		p.strokeWeight(5);
-		p.stroke(0, 150);
-		p.line(x1, y1, x2, y2);
 	};
 };
 
@@ -653,7 +651,6 @@ export const PolyLine = (container) => (p) => {
 		}
 		p.endShape(p.CLOSE);
 
-		p.strokeWeight(5);
 		p.stroke(0, 150);
 		p.line(x1, y1, x2, y2);
 	};

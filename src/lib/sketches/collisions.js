@@ -56,7 +56,7 @@ export function linePoint(x1, y1, x2, y2, px, py) {
 	const d1 = Math.hypot(px - x1, py - y1);
 	const d2 = Math.hypot(px - x2, py - y2);
 	const lineLen = Math.hypot(x2 - x1, y2 - y1);
-	const buffer = 0.1;
+	const buffer = 0.3;
 	return d1 + d2 >= lineLen - buffer && d1 + d2 <= lineLen + buffer;
 }
 
