@@ -13,7 +13,7 @@
 {/if}
 
 <footer>
-  <p>
+  <p class="mb-0">
     [ <a href="{base}/">Início</a> |
     <a href="{base}/table_of_contents">Sumário</a>
     |
@@ -70,6 +70,9 @@
   }
 
   footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid var(--color-border, #eee);
@@ -104,5 +107,9 @@
   .credits {
     font-size: 0.8rem;
     color: #888;
+  }
+
+  .mb-0 {
+    margin-bottom: 0;
   }
 </style>

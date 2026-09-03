@@ -238,6 +238,25 @@ main img {
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Imagens inline / Emojis */
+.chapter-body img.inline-emoji,
+.chapter-body img.inline-img,
+main img.inline-emoji,
+main img.inline-img {
+	display: inline-block;
+	height: 1.3em;
+	width: auto;
+	max-width: none;
+	vertical-align: -0.25em;
+	margin: 0 0.25rem;
+	padding: 0;
+	border-radius: 0;
+	box-shadow: none;
+	background-color: transparent;
+	filter: none;
+	transition: none;
+}
+
 @media (prefers-color-scheme: dark) {
 
 	.chapter-body img,
@@ -246,6 +265,16 @@ main img {
 		padding: 6px;
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 		filter: brightness(0.95) contrast(1.02);
+	}
+
+	.chapter-body img.inline-emoji,
+	.chapter-body img.inline-img,
+	main img.inline-emoji,
+	main img.inline-img {
+		background-color: transparent;
+		padding: 0;
+		box-shadow: none;
+		filter: none;
 	}
 }
 
