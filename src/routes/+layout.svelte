@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import 'katex/dist/katex.min.css';
 	import favicon from '$lib/assets/favicon.png';
 
 	let { children } = $props();

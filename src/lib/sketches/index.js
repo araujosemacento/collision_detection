@@ -947,9 +947,79 @@ export const MatrixTransformations = (container) => (p) => {
 	}
 };
 
+export const DotProduct = (container) => (p) => {
+	p.setup = () => {
+		const w = getCanvasWidth(container);
+		p.createCanvas(w, 250);
+	};
 
+	p.draw = () => {
+		p.background(255);
 
+		// Centro
+		const v0 = p.createVector(p.width / 4, p.height / 2);
 
+		// Vetor preto (v1) apontando para a direita
+		const v1 = p.createVector(p.width / 2, 0);
 
+		// Vetor azul (v2) seguindo o mouse
+		const v2 = p.createVector(p.mouseX - v0.x, p.mouseY - v0.y);
 
+		// Exibe o produto escalar como proporção ao longo do segmento (0 a 1)
+		const lenSq = v1.magSq();
+		const dot = lenSq !== 0 ? v2.dot(v1) / lenSq : 0;
+		const onSegment = dot >= 0 && dot <= 1;
 
+		// Ponto de projeção: se sobre o segmento, para na reta (v0.y); se fora, "cai no vazio" além da altura do canvas
+		const px = p.mouseX;
+		const py = onSegment ? v0.y : (p.mouseY <= v0.y ? p.height * 2 : -p.height * 2);
+
+		// Linha tracejada da ponta do vetor (mouse) até o ponto P ou caindo fora dos limites do canvas
+		drawDashedLine(p.mouseX, p.mouseY, px, py);
+
+		// Desenha os vetores
+		drawArrow(v0, v1, 'black');
+		drawArrow(v0, v2, [0, 150, 255]);
+
+		// Desenha o ponto P visível apenas enquanto contido nos confins do segmento de reta
+		if (onSegment) {
+			p.fill(255, 150, 0);
+			p.noStroke();
+			p.circle(px, py, 8);
+			p.textSize(13);
+			p.textStyle(p.BOLD);
+			p.text('P', px - 4, py + (p.mouseY < v0.y ? 16 : -8));
+			p.textStyle(p.NORMAL);
+		}
+
+		// Valor numérico de dot
+		p.noStroke();
+		p.fill(onSegment ? 0 : 255, 0, 0);
+		p.textSize(16);
+		p.text(`dot = ${dot.toFixed(2)}`, 15, p.height - 15);
+	};
+
+	function drawArrow(base, vec, myColor) {
+		p.push();
+		p.stroke(myColor);
+		p.strokeWeight(3);
+		p.fill(myColor);
+		p.translate(base.x, base.y);
+		p.line(0, 0, vec.x, vec.y);
+		p.rotate(vec.heading());
+		const arrowSize = 7;
+		p.translate(vec.mag() - arrowSize, 0);
+		p.triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
+		p.pop();
+	}
+
+	function drawDashedLine(x1, y1, x2, y2) {
+		p.push();
+		p.stroke(180);
+		p.strokeWeight(1.5);
+		p.drawingContext.setLineDash([5, 5]);
+		p.line(x1, y1, x2, y2);
+		p.drawingContext.setLineDash([]);
+		p.pop();
+	}
+};

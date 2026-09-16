@@ -28,7 +28,9 @@ export const chapters = [
 	{ slug: 'section_5_challenges', title: 'Desafios: Seção 5', sketch: null },
 	{ slug: 'object_oriented_collision', title: 'Colisão Orientada a Objetos', sketch: 'ObjectOrientedCollision' },
 	{ slug: 'matrix_transformations', title: 'Transformações de Matrizes', sketch: 'MatrixTransformations' },
-	{ slug: 'thanks', title: 'Agradecimentos', sketch: null }
+	{ slug: 'thanks', title: 'Agradecimentos', sketch: null },
+	{ slug: 'bonus_chapters', title: 'Capítulos Bônus', sketch: null },
+	{ slug: 'bonus-dot_product', title: 'Bônus - Produto Escalar', sketch: null }
 ];
 
 export function getChapterInfo(slug) {

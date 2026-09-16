@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Ler o Livro Online"
+    url: "https://araujosemacento.github.io/collision_detection/"
+    about: "Acesse a versão web com todas as demonstrações interativas."

@@ -10,5 +10,6 @@
 		"strict": false,
 		"module": "esnext",
 		"moduleResolution": "bundler"
-	}
+	},
+	"extends": "./.svelte-kit/tsconfig.json"
 }

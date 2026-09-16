@@ -1,0 +1,49 @@
+name: "Relatório de Erro / Correção"
+description: "Encontrou um erro de digitação, falha conceitual, bug no código ou no sketch interativo?"
+title: "[Correção]: "
+labels: ["bug", "revisão"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar a manter a qualidade e a precisão técnica do projeto!
+
+  - type: input
+    id: chapter
+    attributes:
+      label: "Capítulo ou Página com Problema"
+      description: "Em qual capítulo ou seção do livro o erro foi encontrado?"
+      placeholder: "Ex: Linha / Círculo (line-circle), Bônus: Produto Escalar, etc."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: "Tipo do Problema"
+      options:
+        - "Erro de digitação ou tradução (typo / concordância)"
+        - "Erro matemático ou conceitual no texto"
+        - "Bug no exemplo de código (JavaScript, Java ou Python)"
+        - "Falha na demonstração interativa (sketch p5.js)"
+        - "Problema visual ou de layout no site"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Descrição do Problema"
+      description: "Descreva o que está incorreto e, se possível, qual seria a versão corrigida."
+      placeholder: "Ex: No passo 3 do algoritmo, a variável foi escrita com nome X, mas deveria ser Y..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Passos para Reproduzir (se for falha no sketch ou site)"
+      description: "Caso seja um bug visual ou interativo, como reproduzi-lo?"
+      placeholder: "1. Acesse o capítulo X\n2. Mova o mouse até...\n3. O elemento pisca ou não detecta..."
+    validations:
+      required: false

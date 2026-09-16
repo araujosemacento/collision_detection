@@ -1,0 +1,59 @@
+name: "Sugestão de Conteúdo / Capítulo Bônus"
+description: "Sugira um novo algoritmo de colisão, conceito matemático ou capítulo bônus para o livro."
+title: "[Sugestão]: "
+labels: ["sugestão", "capítulo bônus"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado pelo interesse em contribuir com a evolução do livro!
+        Preencha os campos abaixo para entendermos melhor a sua ideia de novo conteúdo.
+
+  - type: input
+    id: topic
+    attributes:
+      label: "Tópico ou Algoritmo Proposto"
+      description: "Qual conceito, forma geométrica ou algoritmo você gostaria de ver abordado?"
+      placeholder: "Ex: Colisão Círculo-Cápsula, SAT (Separating Axis Theorem), Raycasting 2D, Resposta Elástica..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Categoria do Assunto"
+      description: "Em qual área da física/geometria esse tema melhor se encaixa?"
+      options:
+        - "Capítulo Bônus (Conceito Teórico / Álgebra / Vetores)"
+        - "Novo Algoritmo de Colisão entre Formas"
+        - "Física e Resposta de Colisão (Impulso, Rebote, Atrito)"
+        - "Otimização Espacial (Grids, Quadtrees, AABB)"
+        - "Outro"
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: "Por que esse tema seria interessante?"
+      description: "Explique resumidamente onde esse conceito é usado em jogos/computação gráfica e o que seria legal explicar aos leitores."
+      placeholder: "Ex: Acho útil porque muitas engines 2D usam cápsulas para personagens, e seria legal ver uma explicação simples como as do livro..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: "Referências ou Materiais de Apoio (Opcional)"
+      description: "Links para artigos, tópicos de fóruns, vídeos ou implementações de referência sobre o tema."
+      placeholder: "Ex: https://..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: "Verificação Prévia"
+      options:
+        - label: "Verifiquei os capítulos e issues existentes para garantir que o tema ainda não foi sugerido ou abordado."
+          required: true

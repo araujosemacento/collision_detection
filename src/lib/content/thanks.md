@@ -27,7 +27,7 @@ Todo este código só foi possível graças a uma enorme quantidade de ajuda onl
 
 ---
 
-### CRÉDITOS DA VERSÃO REESTRUTURADA E TRADUZIDA
+### ADENDO DA VERSÃO REESTRUTURADA E TRADUZIDA
 
 - **Antigravity AI (Google DeepMind)**: Pair programming na migração para SvelteKit SSG, criação dos demonstrativos em **p5.js**, tradução didática para PT-BR, suporte a códigos em **Pygame (Python)** e otimizações técnicas de SEO e acessibilidade.
 
