@@ -19,7 +19,7 @@ Passar do capítulo [Ponto/Retângulo](point-rect) para a colisão entre dois re
 - A borda **superior** de `r1` está acima da borda **inferior** de `r2`?
 - A borda **inferior** de `r1` passou da borda **superior** de `r2`?
 
-Com certeza não é nem um pouco intuitivo<img src="/emotiguy.png" alt="emotiguy triste e pensativo" class="inline-emoji"/>. Talvez essa imagem ajude um pouco:
+Com certeza não é nem um pouco intuitivo<img src="emotiguy.png" alt="emotiguy triste e pensativo" class="inline-emoji"/>. Talvez essa imagem ajude um pouco:
 
 ![Teste de sobreposição entre dois retângulos](images/rect-rect.jpg)
 
