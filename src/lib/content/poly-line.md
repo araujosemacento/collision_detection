@@ -14,7 +14,7 @@ caption: "Mova a linha com o mouse para atingir o polígono regular de 16 lados!
 
 #### Jeff Thompson
 
-Verificar se uma linha está colidindo com um polígono é um processo muito parecido com o exemplo [Retângulo/Linha](rect-line). Percorremos cada aresta do polígono e realizamos uma verificação [Linha/Linha](line-line).
+Verificar se uma linha está colidindo com um polígono é um processo muito parecido com o exemplo [Linha/Retângulo](line-rect). Percorremos cada aresta do polígono e realizamos uma verificação [Linha/Linha](line-line).
 
 ---
 

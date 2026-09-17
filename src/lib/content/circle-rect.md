@@ -12,7 +12,7 @@ caption: "Mova o círculo com o mouse para colidir com o retângulo!"
 
 # CÍRCULO / RETÂNGULO
 
-Este último exemplo dessa seção combina o código de [círculos](circle-point) e [retângulos](point-rect) vistos anteriormente. Temos um círculo na posição `(cx, cy)` com raio `r` e um retângulo na posição `(rx, ry)` com largura `rw` e altura `rh`.
+Este último exemplo dessa seção combina o código de [círculos](point-circle) e [retângulos](point-rect) vistos anteriormente. Temos um círculo na posição `(cx, cy)` com raio `r` e um retângulo na posição `(rx, ry)` com largura `rw` e altura `rh`.
 
 Nosso algoritmo primeiro testa qual borda do retângulo está mais próxima do centro do círculo e, em seguida, verifica a colisão aplicando o Teorema de Pitágoras.
 

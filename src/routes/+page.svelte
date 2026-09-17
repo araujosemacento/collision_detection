@@ -46,6 +46,10 @@
 	<meta property="og:description" content={pageDescription} />
 	<meta property="og:url" content={pageUrl} />
 	<meta property="og:image" content={ogImage} />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="Capa do livro Detecção de Colisão 2D" />
 
 	<!-- Twitter Cards -->
 	<meta name="twitter:card" content="summary_large_image" />
