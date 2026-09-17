@@ -4,6 +4,7 @@ slug: "line-circle"
 order: 14
 sketch: "LineCircle"
 caption: "Use o mouse para posicionar o círculo sobre a linha!"
+description: "Algoritmo de colisão entre linha e círculo projetando o ponto mais próximo através do produto escalar."
 ---
 
 <script>

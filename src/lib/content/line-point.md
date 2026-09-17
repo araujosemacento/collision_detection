@@ -4,6 +4,8 @@ slug: "line-point"
 order: 13
 sketch: "LinePoint"
 caption: "Use o mouse para posicionar o ponto sobre o segmento de reta!"
+description: "Verificação de colisão entre ponto e segmento de reta medindo distâncias com margem de tolerância."
+image: "images/line-point.jpg"
 ---
 
 <script>

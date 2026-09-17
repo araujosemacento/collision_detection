@@ -4,6 +4,8 @@ slug: "circle-circle"
 order: 7
 sketch: "CircleCircle"
 caption: "Use o mouse para mover o círculo menor e colidir com o círculo maior!"
+description: "Como detectar colisões e sobreposições entre dois círculos somando seus raios e medindo a distância entre centros."
+image: "images/bounding-circle.jpg"
 ---
 
 <script>

@@ -3,6 +3,8 @@ title: "Desafios: Seção 5"
 slug: "section_5_challenges"
 order: 26
 sketch: null
+description: "Desafios práticos integrando triângulos, polígonos e estruturas complexas em jogos 2D."
+image: "images/challenge.jpg"
 ---
 
 # SEÇÃO 5: DESAFIOS

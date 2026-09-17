@@ -4,6 +4,7 @@ slug: "object_oriented_collision"
 order: 27
 sketch: "ObjectOrientedCollision"
 caption: "Mova o círculo (objeto) com o mouse para testar a colisão contra o array de retângulos!"
+description: "Arquitetura de classes e objetos para gerenciar dezenas de colisões simultâneas de forma limpa e modular."
 ---
 
 <script>

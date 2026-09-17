@@ -4,6 +4,7 @@ slug: "line-line"
 order: 15
 sketch: "LineLine"
 caption: "Use o mouse para cruzar as duas linhas!"
+description: "Interseção entre dois segmentos de reta usando equações paramétricas e detecção do ponto de cruzamento."
 ---
 
 <script>

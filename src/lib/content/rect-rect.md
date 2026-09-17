@@ -4,6 +4,8 @@ slug: "rect-rect"
 order: 10
 sketch: "RectRect"
 caption: "Mova o retângulo menor com o mouse para colidir com o retângulo maior!"
+description: "Detecção de colisão entre retângulos alinhados aos eixos (AABB) através do teste das quatro bordas."
+image: "images/rect-rect.jpg"
 ---
 
 <script>

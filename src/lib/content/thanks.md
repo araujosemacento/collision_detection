@@ -3,6 +3,7 @@ title: "Agradecimentos"
 slug: "thanks"
 order: 28
 sketch: null
+description: "Créditos e referências a todos os autores, bibliotecas e materiais que tornaram este livro possível."
 ---
 
 # AGRADECIMENTOS

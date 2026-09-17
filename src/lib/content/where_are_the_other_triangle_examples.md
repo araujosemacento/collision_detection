@@ -3,6 +3,8 @@ title: "Outros Exemplos de Triângulo"
 slug: "where_are_the_other_triangle_examples"
 order: 25
 sketch: null
+description: "Como reutilizar os algoritmos de polígonos para colisões entre triângulos, retângulos, círculos e linhas."
+image: "images/where-are-other-triangle-examples.jpg"
 ---
 
 # ONDE ESTÃO OS OUTROS EXEMPLOS DE TRIÂNGULO?

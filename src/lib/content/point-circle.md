@@ -4,6 +4,8 @@ slug: "point-circle"
 order: 6
 sketch: "PointCircle"
 caption: "Mova o mouse (ponto) para dentro do círculo para testar a colisão!"
+description: "Detecção de colisão entre ponto e círculo usando o Teorema de Pitágoras e cálculo de distância euclidiana."
+image: "images/point-circle.jpg"
 ---
 
 <script>

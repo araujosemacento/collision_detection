@@ -4,6 +4,7 @@ slug: "poly-circle"
 order: 19
 sketch: "PolyCircle"
 caption: "Mova o círculo com o mouse para atingir o polígono!"
+description: "Detecção de colisão entre polígonos e círculos testando arestas individuais e inclusão de vértices internos."
 ---
 
 <script>

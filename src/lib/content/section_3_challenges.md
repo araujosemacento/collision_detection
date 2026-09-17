@@ -3,6 +3,8 @@ title: "Desafios: Seção 3"
 slug: "section_3_challenges"
 order: 17
 sketch: null
+description: "Desafios avançados envolvendo colisões com linhas, reflexões e sistemas de linha de visão (Line of Sight)."
+image: "images/challenge.jpg"
 ---
 
 # SEÇÃO 3: DESAFIOS

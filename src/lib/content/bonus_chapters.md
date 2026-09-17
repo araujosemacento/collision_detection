@@ -3,6 +3,7 @@ title: "Capítulos Bônus"
 slug: "bonus_chapters"
 order: 29
 sketch: null
+description: "Introdução aos tópicos extras e aprofundamentos matemáticos que expandem a obra original."
 ---
 
 # CAPÍTULOS BÔNUS

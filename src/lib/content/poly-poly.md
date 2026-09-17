@@ -4,6 +4,7 @@ slug: "poly-poly"
 order: 22
 sketch: "PolyPoly"
 caption: "Mova o polígono irregular com o mouse para colidir com o pentágono central!"
+description: "Teste completo de colisão e penetração mútua entre dois polígonos complexos de múltiplas arestas."
 ---
 
 <script>

@@ -3,6 +3,8 @@ title: "Desafios: Seção 4"
 slug: "section_4_challenges"
 order: 23
 sketch: null
+description: "Exercícios e desafios de colisão com polígonos regulares, polígonos irregulares e formas côncavas."
+image: "images/challenge.jpg"
 ---
 
 # SEÇÃO 4: DESAFIOS

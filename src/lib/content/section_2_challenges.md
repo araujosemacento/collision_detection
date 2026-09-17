@@ -3,6 +3,8 @@ title: "Desafios: Seção 2"
 slug: "section_2_challenges"
 order: 12
 sketch: null
+description: "Exercícios práticos e problemas de física 2D envolvendo detecção de colisão com retângulos e círculos."
+image: "images/challenge.jpg"
 ---
 
 # SEÇÃO 2: DESAFIOS

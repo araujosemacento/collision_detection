@@ -3,6 +3,8 @@ title: "Bônus: Produto Escalar"
 slug: "bonus-dot_product"
 order: 30
 sketch: null
+description: "Entenda a geometria e a trigonometria do produto escalar (Dot Product) para projeção de pontos e colisões."
+image: "images/vector-shadow.jpg"
 ---
 
 <script>
@@ -170,6 +172,7 @@ Substituindo tudo, chegamos à fórmula final exata:
 Agora que entendemos a matemática, vamos analisar a modularidade e o propósito de cada etapa do algoritmo em [Linha / Círculo](line-circle):
 
 ### 1. Por que calcular as coordenadas?
+
 #### `closestX` e `closestY`
 
 Com a proporção `dot` em mãos, encontramos a posição real do ponto P fazendo uma [**interpolação linear**](https://pt.wikipedia.org/wiki/Interpola%C3%A7%C3%A3o_linear) (avançando uma porcentagem `dot` a partir do ponto A):
@@ -194,6 +197,7 @@ closest_y = y1 + (dot * (y2 - y1))
 </CodeTabs>
 
 ### 2. Por que testar se o ponto está no segmento?
+
 #### `linePoint` ou `0 ≤ dot ≤ 1`
 
 A projeção matemática assume uma reta infinita. Se o círculo estiver muito afastado para além das pontas da linha, a "sombra" do vetor, formado pelo início da linha até o centro do círculo, cai no vazio:
@@ -205,7 +209,8 @@ A projeção matemática assume uma reta infinita. Se o círculo estiver muito a
 - Se `0 ≤ dot ≤ 1`: o ponto mais próximo está perfeitamente sobre o segmento entre A e B.
 
 ### 3. Por que testar a distância contra o raio?
-#### `dist <= r` 
+
+#### `dist <= r`
 
 Tendo o ponto mais próximo `P(closestX, closestY)`, medimos a distância euclidiana real entre P e o centro C:
 

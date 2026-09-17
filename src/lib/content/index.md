@@ -4,6 +4,7 @@ slug: "index"
 order: 1
 sketch: "Introduction"
 caption: "Use o mouse para mover o círculo e colidir com as formas caindo!"
+description: "Livro interativo sobre algoritmos de detecção de colisão 2D em jogos com p5.js, Processing (Java) e Pygame (Python)."
 ---
 
 # DETECÇÃO DE COLISÃO

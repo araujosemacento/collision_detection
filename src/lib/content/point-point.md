@@ -4,6 +4,7 @@ slug: "point-point"
 order: 5
 sketch: "PointPoint"
 caption: "Mova o mouse sobre o ponto azul alvo para testar a colisão!"
+description: "Aprenda o algoritmo mais simples de colisão 2D: testando a igualdade exata de coordenadas entre dois pontos."
 ---
 
 <script>

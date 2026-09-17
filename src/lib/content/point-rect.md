@@ -4,6 +4,8 @@ slug: "point-rect"
 order: 9
 sketch: "PointRect"
 caption: "Mova o ponteiro do mouse para dentro do retângulo!"
+description: "Algoritmo de teste de inclusão de ponto em retângulo usando coordenadas cartesianas (Bounding Box)."
+image: "images/rect-bounding-box.jpg"
 ---
 
 <script>

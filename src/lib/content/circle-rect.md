@@ -4,6 +4,8 @@ slug: "circle-rect"
 order: 11
 sketch: "CircleRect"
 caption: "Mova o círculo com o mouse para colidir com o retângulo!"
+description: "Como detectar colisão entre círculo e retângulo encontrando a borda mais próxima e aplicando Pitágoras."
+image: "images/bounding-box.jpg"
 ---
 
 <script>
@@ -49,11 +51,13 @@ Em código, esses testes são estruturados assim:
 <CodeTabs>
 
 ```javascript
-if (cx < rx)         testX = rx;        // borda esquerda
-else if (cx > rx+rw) testX = rx+rw;     // borda direita
+if (cx < rx)
+  testX = rx; // borda esquerda
+else if (cx > rx + rw) testX = rx + rw; // borda direita
 
-if (cy < ry)         testY = ry;        // borda superior
-else if (cy > ry+rh) testY = ry+rh;     // borda inferior
+if (cy < ry)
+  testY = ry; // borda superior
+else if (cy > ry + rh) testY = ry + rh; // borda inferior
 ```
 
 ```java
@@ -85,7 +89,7 @@ Agora que descobrimos quais coordenadas de borda estão mais próximas, usamos o
 ```javascript
 let distX = cx - testX;
 let distY = cy - testY;
-let distance = Math.sqrt((distX * distX) + (distY * distY));
+let distance = Math.sqrt(distX * distX + distY * distY);
 ```
 
 ```java
@@ -107,13 +111,13 @@ Por fim, comparamos essa distância com o raio do círculo: se `distance <= radi
 <CodeTabs>
 
 ```javascript
-let cx = 0;     // posição do circulo (definida pelo mouse)
+let cx = 0; // posição do circulo (definida pelo mouse)
 let cy = 0;
-let r = 30;     // raio do circulo
+let r = 30; // raio do circulo
 
-let rx = 200;   // posição do retangulo
+let rx = 200; // posição do retangulo
 let ry = 100;
-let rw = 200;   // e as dimensões
+let rw = 200; // e as dimensões
 let rh = 200;
 
 function setup() {
@@ -142,27 +146,28 @@ function draw() {
 
   // desenha o círculo
   fill(0, 150);
-  ellipse(cx, cy, r*2, r*2);
+  ellipse(cx, cy, r * 2, r * 2);
 }
 
 // CÍRCULO/RETÂNGULO
 function circleRect(cx, cy, r, rx, ry, rw, rh) {
-
   // variáveis temporárias pra definir as bordas pra realização do cálculo de teste
   let testX = cx;
   let testY = cy;
 
   // verificando as bordas
-  if (cx < rx) testX = rx;                // borda esquerda
+  if (cx < rx)
+    testX = rx; // borda esquerda
   else if (cx > rx + rw) testX = rx + rw; // borda direita
 
-  if (cy < ry) testY = ry;                // borda superior
+  if (cy < ry)
+    testY = ry; // borda superior
   else if (cy > ry + rh) testY = ry + rh; // borda inferior
 
   // aplicando o Teorema de Pitágoras pra calcular a distância
   let distX = cx - testX;
   let distY = cy - testY;
-  let distance = sqrt((distX * distX) + (distY * distY));
+  let distance = sqrt(distX * distX + distY * distY);
 
   // se a distância for menor ou igual ao raio, ocorreu uma colisão!
   if (distance <= r) {
@@ -279,7 +284,7 @@ while True:
         if evento.type == pygame.QUIT:
             pygame.quit()
             exit()
-    
+
     # atualiza as coordenadas do círculo
     cx, cy = pygame.mouse.get_pos()
 
@@ -292,13 +297,13 @@ while True:
         cor = (255, 150, 0)
     else:
         cor = (0, 150, 255)
-    
+
     # desenha o retângulo
     pygame.draw.rect(tela, cor, (rx, ry, rw, rh))
-    
+
     # desenha o círculo
     pygame.draw.circle(tela, (0, 0, 0), (int(cx), int(cy)), int(r))
-    
+
     pygame.display.flip()
 
 ```
@@ -306,4 +311,3 @@ while True:
 </CodeTabs>
 
 > **Atribuição:** Este algoritmo didático é baseado na solução clássica desenvolvida por [**Matt Worden**](https://web.archive.org/web/20250512153550/https://vband3d.tripod.com/visualbasic/tut_mixedcollisions.htm).
-

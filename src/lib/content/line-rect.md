@@ -4,6 +4,8 @@ slug: "line-rect"
 order: 16
 sketch: "LineRect"
 caption: "Mova a linha com o mouse para atingir o retângulo!"
+description: "Teste de colisão entre segmento de reta e retângulo verificando a interseção com as quatro arestas."
+image: "images/line-rect.jpg"
 ---
 
 <script>

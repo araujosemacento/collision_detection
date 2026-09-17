@@ -4,6 +4,7 @@ slug: "poly-line"
 order: 21
 sketch: "PolyLine"
 caption: "Mova a linha com o mouse para atingir o polígono regular de 16 lados!"
+description: "Algoritmo para verificar colisão entre segmento de reta e qualquer polígono de N lados."
 ---
 
 <script>

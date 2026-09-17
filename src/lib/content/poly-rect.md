@@ -4,6 +4,7 @@ slug: "poly-rect"
 order: 20
 sketch: "PolyRect"
 caption: "Mova o retângulo com o mouse para atingir o polígono!"
+description: "Como testar colisão entre polígonos convexos ou côncavos e retângulos checando arestas e contenção interna."
 ---
 
 <script>

@@ -4,6 +4,8 @@ slug: "tri-point"
 order: 24
 sketch: "TriPoint"
 caption: "Mova o ponteiro do mouse para dentro do triângulo!"
+description: "Detecção de ponto dentro de triângulo comparando a soma das áreas dos subtriângulos internos."
+image: "images/tri-point.jpg"
 ---
 
 <script>

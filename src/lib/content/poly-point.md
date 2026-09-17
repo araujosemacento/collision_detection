@@ -4,6 +4,8 @@ slug: "poly-point"
 order: 18
 sketch: "PolyPoint"
 caption: "Mova o mouse (ponto) para dentro do polígono!"
+description: "Algoritmo Ray Casting (Jordan Curve) para determinar se um ponto está dentro de um polígono arbitrário."
+image: "images/poly-point.jpg"
 ---
 
 <script>

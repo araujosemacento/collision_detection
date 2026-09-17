@@ -3,6 +3,8 @@ title: "Desafios: Seção 1"
 slug: "section_1_challenges"
 order: 8
 sketch: null
+description: "Exercícios e desafios práticos sobre colisões com pontos e círculos para testar seus conhecimentos."
+image: "images/challenge.jpg"
 ---
 
 # SEÇÃO 1: DESAFIOS

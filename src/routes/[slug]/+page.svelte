@@ -18,7 +18,26 @@
 	let pageUrl = $derived(
 		`https://araujosemacento.github.io/collision_detection${slug === 'index' ? '/' : `/${slug}`}`
 	);
-	let ogImage = 'https://araujosemacento.github.io/collision_detection/og-cover.jpg';
+	const defaultOgImage = 'https://araujosemacento.github.io/collision_detection/og-cover.jpg';
+	let ogImage = $derived.by(() => {
+		if (meta.image) {
+			if (meta.image.startsWith('http://') || meta.image.startsWith('https://')) {
+				return meta.image;
+			}
+			const cleanPath = meta.image.replace(/^\/+/, '');
+			return `https://araujosemacento.github.io/collision_detection/${cleanPath}`;
+		}
+		return defaultOgImage;
+	});
+
+	let isCustomImage = $derived(Boolean(meta.image));
+	let imageWidth = $derived(isCustomImage ? 2400 : 1200);
+	let imageHeight = $derived(isCustomImage ? 1600 : 630);
+	let imageAlt = $derived(
+		isCustomImage
+			? `Ilustração do capítulo ${meta.title || pageTitle}`
+			: 'Capa do livro Detecção de Colisão 2D'
+	);
 
 	let jsonLd = $derived(
 		JSON.stringify({
@@ -57,9 +76,9 @@
 	<meta property="og:url" content={pageUrl} />
 	<meta property="og:image" content={ogImage} />
 	<meta property="og:image:type" content="image/jpeg" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="Capa do livro Detecção de Colisão 2D" />
+	<meta property="og:image:width" content="{imageWidth}" />
+	<meta property="og:image:height" content="{imageHeight}" />
+	<meta property="og:image:alt" content={imageAlt} />
 
 	<!-- Twitter Cards -->
 	<meta name="twitter:card" content="summary_large_image" />

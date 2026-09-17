@@ -4,6 +4,7 @@ slug: "matrix_transformations"
 order: 28
 sketch: "MatrixTransformations"
 caption: "Quadrados rotacionando e colidindo através de transformações de matrizes!"
+description: "Detecção de colisão em objetos rotacionados, transladados e escalados usando transformações de matrizes."
 ---
 
 <script>

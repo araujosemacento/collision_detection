@@ -3,6 +3,7 @@ title: "Autoria & Uso de Inteligência Artificial"
 slug: "ai_usage"
 order: 5
 sketch: null
+description: "Documentação de autoria e metodologia de IA utilizada no processo de tradução e modernização deste livro."
 ---
 
 # AUTORIA & USO DE INTELIGÊNCIA ARTIFICIAL

@@ -3,6 +3,7 @@ title: "O Que Você Precisa Saber"
 slug: "what_you_should_already_know"
 order: 4
 sketch: null
+description: "Conceitos fundamentais de geometria, vetores, funções trigonométricas e programação necessários para o livro."
 ---
 
 <script>

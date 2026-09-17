@@ -3,6 +3,8 @@ title: "Licença"
 slug: "license"
 order: 3
 sketch: null
+description: "Informações de licença Creative Commons (CC BY-NC-SA 4.0) da obra original de Jeff Thompson e da tradução em PT-BR."
+image: "images/license.jpg"
 ---
 
 # LICENÇA
