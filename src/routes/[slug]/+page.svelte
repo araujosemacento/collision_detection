@@ -18,7 +18,7 @@
 	let pageUrl = $derived(
 		`https://araujosemacento.github.io/collision_detection${slug === 'index' ? '/' : `/${slug}`}`
 	);
-	let ogImage = 'https://araujosemacento.github.io/collision_detection/og-cover.png';
+	let ogImage = 'https://araujosemacento.github.io/collision_detection/og-cover.jpg';
 
 	let jsonLd = $derived(
 		JSON.stringify({

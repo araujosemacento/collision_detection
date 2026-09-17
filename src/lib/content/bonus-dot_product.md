@@ -12,6 +12,7 @@ sketch: null
 </script>
 
 # PRODUTO ESCALAR
+
 ## DOT PRODUCT
 
 No capítulo [Linha / Círculo](line-circle), nós nos deparamos com uma equação meio mágica:
@@ -38,64 +39,47 @@ Se você nunca teve contato com Álgebra Linear, não se preocupe! Vamos descons
 
 ---
 
-## 1. O PROBLEMA: A MENOR DISTÂNCIA
+## 1. O PROBLEMA DA MENOR DISTÂNCIA
 
 Imagina que a gente tem:
+
 1. Uma linha no chão que vai do ponto **A(x1, y1)** até o ponto **B(x2, y2)**.
 2. O centro de um círculo flutuando no ponto **C(cx, cy)**.
 
 Queremos saber se o círculo encosta na linha. Para isso, precisamos responder: **qual é o ponto P sobre a linha que está mais próximo de C?**
 
-```
-         C (cx, cy) [Centro do círculo]
-        /|
-       / |
-      /  |  (Ângulo reto: 90°)
-     /   |
-    A----P----------------------B
-(x1,y1) [Ponto mais próximo] (x2,y2)
-```
+![Diagrama da menor distância entre o centro do círculo e a linha](images/shortest-distance.jpg)
 
 Geometricamente, a menor distância entre um ponto qualquer e uma reta é sempre a linha que forma um **ângulo reto (90°)** com ela. Esse ponto de encontro **P** é chamado de **projeção ortogonal** de C sobre a reta.
 
 ---
 
-## 2. PENSANDO EM VETORES
-### SETAS NO ESPAÇO
+## 2. PENSANDO EM VETORES COMO SETAS NO ESPAÇO
 
 Em vez de pensar apenas em coordenadas isoladas, vamos pensar em **vetores**. Um vetor é basicamente uma **seta** que aponta de um lugar para outro, descrito por um deslocamento horizontal (**Δx**) e um vertical (**Δy**).
 
 Temos dois vetores principais partindo do início da linha (**A**):
 
 1. **Vetor da Linha (L)**: A seta que vai de A até B.
-   * `L = (x2 - x1, y2 - y1)`
-   * O comprimento total dessa linha (`len`) é a hipotenusa calculada por Pitágoras:  
+   - `L = (x2 - x1, y2 - y1)`
+   - O comprimento total dessa linha (`len`) é a hipotenusa calculada por Pitágoras:  
      `len = √( (x2 - x1)² + (y2 - y1)² )`
 
 2. **Vetor até o Círculo (V)**: A seta que vai de A até o centro do círculo C.
-   * `V = (cx - x1, cy - y1)`
-
-```
-          C (Centro do Círculo)
-         ^
-        / 
-    V  /  
-      /   
-     / θ 
-    A -----------------------> B
-                 L (Linha)
-```
+   - `V = (cx - x1, cy - y1)`
 
 ---
 
-## 3. A TRIGONOMETRIA DA "SOMBRA" PROJEÇÃO ESCALAR
+## 3. A "SOMBRA" DA PROJEÇÃO ESCALAR
 
 Imagine uma luz no alto, apontando perpendicularmente para a linha AB. O vetor **V** (que vai até o círculo) projeta uma **sombra** no chão que cobre parte da linha AB.
 
+![Sombra do vetor V no chão](images/vector-shadow.jpg)
+
 Olhando para o triângulo retângulo formado por A, C e o ponto P:
 
-* A **hipotenusa** é o comprimento do vetor V, denotado pelo módulo de V, `|V|`.
-* O **cateto adjacente** ao ângulo **θ** é a distância de A até P (o comprimento da sombra).
+- A **hipotenusa** é o comprimento do vetor V, denotado pelo módulo de V, `|V|`.
+- O **cateto adjacente** ao ângulo **θ** é a distância de A até P (o comprimento da sombra).
 
 Lembrando da definição básica do cosseno no triângulo retângulo:
 
@@ -109,7 +93,7 @@ Esse valor numérico é o que se chama na matemática de **Projeção Escalar**.
 
 ---
 
-## 4. O TRUQUE: O QUE É O PRODUTO ESCALAR?
+## 4. O TRUQUE DA REPRESENTAÇÃO
 
 Calcular o ângulo **θ** diretamente com funções trigonométricas como `acos()` ou `cos()` no computador é computacionalmente lento.
 
@@ -117,9 +101,9 @@ Calcular o ângulo **θ** diretamente com funções trigonométricas como `acos(
 
 Por definição matemática, o produto escalar entre dois vetores `V = (Vx, Vy)` e `L = (Lx, Ly)` pode ser calculado de **duas formas equivalentes**:
 
-- ### **Forma 1: Pelas componentes cartesianas (fácil pro computador)**
+- ### **Forma 1: Pelas componentes cartesianas**
 
-Basta multiplicar as coordenadas x entre si, as coordenadas y entre si e somar tudo:
+É muito fácil para o computador multiplicar as coordenadas x entre si, as coordenadas y entre si e somar tudo:
 
 <Math expr={String.raw`\vec{V} \cdot \vec{L} = (V_x)(L_x) + (V_y)(L_y)`} display />
 
@@ -127,7 +111,7 @@ Substituindo pelas nossas variáveis do código, temos:
 
 <Math expr={String.raw`\vec{V} \cdot \vec{L} = (cx - x_1)(x_2 - x_1) + (cy - y_1)(y_2 - y_1)`} display />
 
-- ### **Forma 2: Pela geometria (tamanho e ângulo)**
+- ### **Forma 2: Pela geometria**
 
 Multiplicando o módulo do vetor V, pelo módulo do vetor L e pelo cosseno do ângulo entre eles:
 
@@ -144,17 +128,19 @@ As duas fórmulas acima produzem <em>exatamente o mesmo resultado numérico</em>
 Agora vamos juntar todas as peças para entender a fórmula usada no código de colisão!
 
 ### Passo 1: Queremos a proporção do trajeto
+
 Não queremos apenas a distância em pixels de A até P. Queremos saber **que fração do caminho** ao longo da linha AB o ponto P representa. Chamamos essa fração de **t** (ou `dot` no nosso código):
 
 <Math expr={String.raw`t = \frac{\text{distância } AP}{\text{comprimento total } AB} = \frac{|\vec{V}| \, \cos(\theta)}{|\vec{L}|}`} display />
 
-* Se **t = 0**: o ponto mais próximo é o início A.
-* Se **t = 1**: o ponto mais próximo é o fim B.
-* Se **t = 0.5**: o ponto mais próximo é a metade exata da linha.
+- Se **t = 0**: o ponto mais próximo é o início A.
+- Se **t = 1**: o ponto mais próximo é o fim B.
+- Se **t = 0.5**: o ponto mais próximo é a metade exata da linha.
 
 Assim por diante... O que significa que se o valor de **t** for menor que **0**, ou maior que **1**, o ponto mais próximo estará **fora** da linha, mesmo que esteja projetado sobre a reta que a contém.
 
 ### Passo 2: Multiplicando em cima e embaixo por |L|
+
 Para fazer o produto escalar aparecer no numerador, multiplicamos a fração por `|L|` sobre `|L|` (o que não altera seu valor):
 
 <Math expr={String.raw`t = (\frac{|\vec{V}| \, \cos(\theta)}{|\vec{L}|}) \, (\frac{|\vec{L}|}{|\vec{L}|}) = \frac{|\vec{V}| \, \cos(\theta) \, |\vec{L}|}{|\vec{L}| \, |\vec{L}|}`} display />
@@ -164,17 +150,14 @@ Reorganizando o numerador e o denominador, temos:
 <Math expr={String.raw`t = \frac{|\vec{V}| \, |\vec{L}| \, \cos(\theta)}{|\vec{L}|^2}`} display />
 
 ### Passo 3: Substituição direta
-Repara que o numerador é **exatamente a definição geométrica do produto escalar**:
 
-<Math expr={String.raw`|\vec{V}| \, |\vec{L}| \, \cos(\theta) = \vec{V} \cdot \vec{L} = (cx - x_1)(x_2 - x_1) + (cy - y_1)(y_2 - y_1)`} />
+Repara que o numerador é **exatamente a definição geométrica** do produto escalar:
 
-<br><br>
+<Math expr={String.raw`|\vec{V}| \, |\vec{L}| \, \cos(\theta) = \vec{V} \cdot \vec{L} = (cx - x_1)(x_2 - x_1) + (cy - y_1)(y_2 - y_1)`} display />
 
 E o denominador é o quadrado do comprimento da linha:
 
-<Math expr={String.raw`|\vec{L}|^2 = \text{len}^2`} />
-
-<br><br>
+<Math expr={String.raw`|\vec{L}|^2 = \text{len}^2`} display />
 
 Substituindo tudo, chegamos à fórmula final exata:
 
@@ -186,14 +169,16 @@ Substituindo tudo, chegamos à fórmula final exata:
 
 Agora que entendemos a matemática, vamos analisar a modularidade e o propósito de cada etapa do algoritmo em [Linha / Círculo](line-circle):
 
-### 1. Por que calcular as coordenadas de `closestX` e `closestY`?
+### 1. Por que calcular as coordenadas?
+#### `closestX` e `closestY`
+
 Com a proporção `dot` em mãos, encontramos a posição real do ponto P fazendo uma [**interpolação linear**](https://pt.wikipedia.org/wiki/Interpola%C3%A7%C3%A3o_linear) (avançando uma porcentagem `dot` a partir do ponto A):
 
 <CodeTabs>
 
 ```javascript
-let closestX = x1 + (dot * (x2 - x1));
-let closestY = y1 + (dot * (y2 - y1));
+let closestX = x1 + dot * (x2 - x1);
+let closestY = y1 + dot * (y2 - y1);
 ```
 
 ```java
@@ -208,23 +193,20 @@ closest_y = y1 + (dot * (y2 - y1))
 
 </CodeTabs>
 
-### 2. Por que testar se o ponto está no segmento (`linePoint` ou `0 ≤ dot ≤ 1`)?
+### 2. Por que testar se o ponto está no segmento?
+#### `linePoint` ou `0 ≤ dot ≤ 1`
+
 A projeção matemática assume uma reta infinita. Se o círculo estiver muito afastado para além das pontas da linha, a "sombra" do vetor, formado pelo início da linha até o centro do círculo, cai no vazio:
 
-```
-  C (Círculo)
-  |
-  |  (Projeção caiu fora do segmento!)
-  v
---P--------- A ------------------------ B -----------
- (dot < 0)  (dot = 0)                 (dot = 1)   (dot > 1)
-```
+![Visualização do ponto fora do segmento de reta](images/fallen-dot.jpg)
 
-* Se `dot < 0`: o ponto mais próximo na reta está antes de A.
-* Se `dot > 1`: o ponto mais próximo na reta está depois de B.
-* Se `0 ≤ dot ≤ 1`: o ponto mais próximo está perfeitamente sobre o segmento entre A e B.
+- Se `dot < 0`: o ponto mais próximo na reta está antes de A.
+- Se `dot > 1`: o ponto mais próximo na reta está depois de B.
+- Se `0 ≤ dot ≤ 1`: o ponto mais próximo está perfeitamente sobre o segmento entre A e B.
 
 ### 3. Por que testar a distância contra o raio?
+#### `dist <= r` 
+
 Tendo o ponto mais próximo `P(closestX, closestY)`, medimos a distância euclidiana real entre P e o centro C:
 
 > **distância = √( (closestX - cx)² + (closestY - cy)² )**
@@ -237,13 +219,13 @@ Se essa distância for menor ou igual ao raio `r`, confirmamos a colisão, porqu
 
 > **Em conclusão, o produto escalar nada mais é do que uma forma ultra rápida e elegante de projetar um ponto sobre uma reta sem precisar calcular ângulos nem funções trigonométricas pesadas.**
 
-Ele é a base não apenas para colisões de linha e círculo, mas também para cálculos de reflexão de vetores e física de rebotes em jogos 2D/3D, cones de visão de inimigos em inteligência artificial e detecção avançada de colisões entre polígonos complexos ([*Separating Axis Theorem - SAT*](https://dyn4j.org/2010/01/sat/)).
+Ele é a base não apenas para colisões de linha e círculo, mas também para cálculos de reflexão de vetores e física de rebotes em jogos 2D/3D, cones de visão de inimigos em inteligência artificial e detecção avançada de colisões entre polígonos complexos ([_Separating Axis Theorem - SAT_](https://dyn4j.org/2010/01/sat/)).
 
 Embora tenhamos construído a fórmula passo a passo com coordenadas cartesianas para desmistificar a matemática, no desenvolvimento real você não precisa reinventar a roda. Todos os três ecossistemas abordados no livro possuem classes de vetores com funções utilitárias prontas para calcular o produto escalar:
 
-* **p5.js:** através do método [`p5.Vector.dot()`](https://p5js.org/reference/p5.Vector/dot/);
-* **Processing:** através do método [`PVector.dot()`](https://processing.org/reference/PVector_dot_.html);
-* **Pygame:** através do método [`Vector2.dot()`](https://github.com/Rabbid76/PyGameExamplesAndAnswers/blob/master/documentation/pygame/pygame_math_vector_and_reflection.md#dot-product) disponível no módulo `pygame.math`.
+- **p5.js:** através do método [`p5.Vector.dot()`](https://p5js.org/reference/p5.Vector/dot/);
+- **Processing:** através do método [`PVector.dot()`](https://processing.org/reference/PVector_dot_.html);
+- **Pygame:** através do método [`Vector2.dot()`](https://github.com/Rabbid76/PyGameExamplesAndAnswers/blob/master/documentation/pygame/pygame_math_vector_and_reflection.md#dot-product) disponível no módulo `pygame.math`.
 
 Analise o código da demonstração interativa a seguir, que exemplifica o uso dessas funções:
 
@@ -275,13 +257,13 @@ function draw() {
 
   // Ponto de projeção: para na reta ou "cai no vazio" além do canvas
   let px = mouseX;
-  let py = onSegment ? v0.y : (mouseY <= v0.y ? height * 2 : -height * 2);
+  let py = onSegment ? v0.y : mouseY <= v0.y ? height * 2 : -height * 2;
 
   // Linha tracejada da ponta do vetor até o ponto P (ou caindo fora)
   drawDashedLine(mouseX, mouseY, px, py);
 
   // Desenha os vetores
-  drawArrow(v0, v1, 'black');
+  drawArrow(v0, v1, "black");
   drawArrow(v0, v2, color(0, 150, 255));
 
   // Desenha o ponto P visível apenas enquanto contido no segmento
@@ -289,9 +271,10 @@ function draw() {
     fill(255, 150, 0);
     noStroke();
     circle(px, py, 8);
+    fill(0);
     textSize(13);
     textStyle(BOLD);
-    text('P', px - 4, py + (mouseY < v0.y ? 16 : -8));
+    text("P", px - 4, py + (mouseY < v0.y ? 16 : -8));
     textStyle(NORMAL);
   }
 

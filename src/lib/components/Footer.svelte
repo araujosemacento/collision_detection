@@ -6,7 +6,7 @@
   let info = $derived(getChapterInfo(slug));
 </script>
 
-{#if slug !== "thanks" && info?.next}
+{#if info?.next}
   <a href="{base}/{info.next.slug}" class="next-page-link">
     <p class="next-page">PRÓXIMO: {info.next.title.toUpperCase()}</p>
   </a>

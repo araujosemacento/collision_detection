@@ -93,6 +93,10 @@ dot = ((cx - x1) * (x2 - x1) + (cy - y1) * (y2 - y1)) / (length ** 2)
 
 </CodeTabs>
 
+<div class="callout">
+Caso tenha interesse de entender melhor o conceito de produto escalar, confira o capítulo [Bônus: Produto Escalar](bonus-dot_product).
+</div>
+
 ### 4. Encontrar as coordenadas do ponto mais próximo
 
 Usamos o valor de `dot` para calcular as coordenadas X e Y do ponto mais próximo da linha em relação ao centro do círculo:

@@ -986,6 +986,7 @@ export const DotProduct = (container) => (p) => {
 			p.fill(255, 150, 0);
 			p.noStroke();
 			p.circle(px, py, 8);
+			p.fill(0);
 			p.textSize(13);
 			p.textStyle(p.BOLD);
 			p.text('P', px - 4, py + (p.mouseY < v0.y ? 16 : -8));

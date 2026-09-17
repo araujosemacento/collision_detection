@@ -33,11 +33,11 @@
     },
     {
       name: "Considerações Finais",
-      items: chapters.slice(29, 31),
+      items: chapters.slice(29, 30),
     },
     {
       name: "Capítulos Bônus",
-      items: chapters.slice(31),
+      items: chapters.slice(30),
     },
   ];
 </script>

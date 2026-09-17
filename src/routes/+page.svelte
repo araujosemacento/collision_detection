@@ -12,7 +12,7 @@
 	let pageDescription =
 		'Livro interativo sobre algoritmos de detecção de colisão 2D em jogos. Explicações visuais passo a passo em p5.js e código em JavaScript, Pygame (Python) e Processing (Java).';
 	let pageUrl = 'https://araujosemacento.github.io/collision_detection/';
-	let ogImage = 'https://araujosemacento.github.io/collision_detection/og-cover.png';
+	let ogImage = 'https://araujosemacento.github.io/collision_detection/og-cover.jpg';
 
 	let jsonLd = JSON.stringify({
 		'@context': 'https://schema.org',
