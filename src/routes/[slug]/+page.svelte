@@ -42,22 +42,49 @@
 	let jsonLd = $derived(
 		JSON.stringify({
 			'@context': 'https://schema.org',
-			'@type': 'TechArticle',
-			headline: meta.title || 'Detecção de Colisão 2D',
-			description: pageDescription,
-			inLanguage: 'pt-BR',
-			mainEntityOfPage: {
-				'@type': 'WebPage',
-				'@id': pageUrl
-			},
-			author: {
-				'@type': 'Person',
-				name: 'Jeff Thompson'
-			},
-			publisher: {
-				'@type': 'Organization',
-				name: 'Detecção de Colisão 2D'
-			}
+			'@graph': [
+				{
+					'@type': 'TechArticle',
+					'@id': `${pageUrl}#article`,
+					isPartOf: {
+						'@type': 'Book',
+						name: 'Detecção de Colisão 2D',
+						url: 'https://araujosemacento.github.io/collision_detection/'
+					},
+					headline: meta.title || 'Detecção de Colisão 2D',
+					description: pageDescription,
+					image: ogImage,
+					inLanguage: 'pt-BR',
+					mainEntityOfPage: pageUrl,
+					author: {
+						'@type': 'Person',
+						name: 'Jeff Thompson',
+						url: 'http://www.jeffreythompson.org'
+					},
+					publisher: {
+						'@type': 'Organization',
+						name: 'Detecção de Colisão 2D',
+						url: 'https://araujosemacento.github.io/collision_detection/'
+					}
+				},
+				{
+					'@type': 'BreadcrumbList',
+					itemListElement: [
+						{
+							'@type': 'ListItem',
+							position: 1,
+							name: 'Início',
+							item: 'https://araujosemacento.github.io/collision_detection/'
+						},
+						{
+							'@type': 'ListItem',
+							position: 2,
+							name: meta.title || 'Capítulo',
+							item: pageUrl
+						}
+					]
+				}
+			]
 		})
 	);
 </script>
@@ -65,6 +92,10 @@
 <svelte:head>
 	<title>{pageTitle}</title>
 	<meta name="description" content={pageDescription} />
+	<meta
+		name="keywords"
+		content="detecção de colisão 2d, colisão jogos, {meta.title ? `${meta.title.toLowerCase()}, ` : ''}algoritmos de colisão, p5.js, pygame, processing, física 2d, matemática de jogos"
+	/>
 	<link rel="canonical" href={pageUrl} />
 
 	<!-- Open Graph / Facebook -->
@@ -79,12 +110,16 @@
 	<meta property="og:image:width" content="{imageWidth}" />
 	<meta property="og:image:height" content="{imageHeight}" />
 	<meta property="og:image:alt" content={imageAlt} />
+	<meta property="article:author" content="Jeff Thompson" />
+	<meta property="article:section" content="Desenvolvimento de Jogos" />
+	<meta property="article:tag" content="Detecção de Colisão, 2D, Jogos, p5.js, Pygame, Processing" />
 
 	<!-- Twitter Cards -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={pageTitle} />
 	<meta name="twitter:description" content={pageDescription} />
 	<meta name="twitter:image" content={ogImage} />
+	<meta name="twitter:url" content={pageUrl} />
 
 	<!-- Structured Data (JSON-LD) -->
 	{@html `<script type="application/ld+json">${jsonLd}</script>`}

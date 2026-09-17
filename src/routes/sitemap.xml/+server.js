@@ -5,11 +5,14 @@ export const prerender = true;
 export async function GET() {
 	const siteUrl = 'https://araujosemacento.github.io/collision_detection';
 
+	const today = new Date().toISOString().split('T')[0];
+
 	const urlNodes = chapters.map((c) => {
 		const pagePath = c.slug === 'index' ? '' : c.slug;
 		const priority = c.slug === 'index' ? '1.0' : '0.8';
 		return `  <url>
     <loc>${siteUrl}/${pagePath}</loc>
+    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${priority}</priority>
   </url>`;

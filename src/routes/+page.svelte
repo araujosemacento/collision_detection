@@ -20,22 +20,30 @@
 		name: 'Detecção de Colisão 2D',
 		headline: pageTitle,
 		description: pageDescription,
+		image: ogImage,
 		inLanguage: 'pt-BR',
 		url: pageUrl,
 		author: {
 			'@type': 'Person',
-			name: 'Jeff Thompson'
+			name: 'Jeff Thompson',
+			url: 'http://www.jeffreythompson.org'
 		},
 		publisher: {
 			'@type': 'Organization',
-			name: 'Collision Detection PT-BR'
-		}
+			name: 'Detecção de Colisão 2D',
+			url: pageUrl
+		},
+		sameAs: ['https://github.com/araujosemacento/collision_detection']
 	});
 </script>
 
 <svelte:head>
 	<title>{pageTitle}</title>
 	<meta name="description" content={pageDescription} />
+	<meta
+		name="keywords"
+		content="detecção de colisão 2d, colisão jogos, desenvolvimento de jogos, p5.js, pygame, processsing, física 2d, matemática de jogos, algoritmos de colisão"
+	/>
 	<link rel="canonical" href={pageUrl} />
 
 	<!-- Open Graph / Facebook -->
@@ -56,6 +64,7 @@
 	<meta name="twitter:title" content={pageTitle} />
 	<meta name="twitter:description" content={pageDescription} />
 	<meta name="twitter:image" content={ogImage} />
+	<meta name="twitter:url" content={pageUrl} />
 
 	<!-- Structured Data (JSON-LD) -->
 	{@html `<script type="application/ld+json">${jsonLd}</script>`}
